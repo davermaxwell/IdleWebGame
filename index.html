@@ -1,0 +1,24 @@
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="interface.css" />
+	</head>
+	<body>
+		<p>
+			<span style="color:blue">Crops: </span>
+			<span style="color:blue" id="crops">0</span>
+		</p>
+		<button type="button" onClick="harvestClick(1)">Harvest</button>
+		Harvest <span id="harvestCrops">1</span> Crop,
+		Cost: FREE!!
+		<br />
+		<button type="button" onClick="buyFarmhand(1)">Buy Farmhand</button>
+		Farmhands: <span id="farmhands">0</span>,
+		Cost: <span id="farmhandCost">10</span>
+		<br />
+		<button type="button" onClick="buyTractor(1)">Buy Tractor</button>
+		Tractors: <span id="tractors">0</span>,
+		Cost: <span id="tractorCost">100</span>
+		<br />
+		<script type="text/javascript" src="main.js"></script>
+	</body>
+</html>
