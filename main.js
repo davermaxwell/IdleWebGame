@@ -1,37 +1,55 @@
-var crops = 0;
-var farmhands = 0;
-var tractors = 0;
+var coins = 0;
+var farms = 0;
+var taverns = 0;
+var forges = 0;
 
-function harvestClick(number){
-	crops += number;
-	document.getElementById("crops").innerHTML = crops;
+function earnCoins(number){
+	coins += number;
+	document.getElementById("coins").innerHTML = coins;
 }
 
-function buyFarmhand(number){
-	var farmhandCost = Math.floor(10 * Math.pow(1.1, farmhands));		// works out the cost of this farmhandCost
-	if(crops >= farmhandCost){											// checks that the player can afford the farmhand
-		farmhands += 1;													// increases number of farmhands
-		crops -= farmhandCost;											// removes the crops spent
-		document.getElementById('farmhands').innerHTML = farmhands;		// updates the number of farmhands for the user
-		document.getElementById('crops').innerHTML = crops;				// updates the number of crops for the user
-		var nextCost = Math.floor(10 * Math.pow(1.1, farmhands));		// works out the cost of the next farmhand
-		document.getElementById('farmhandCost').innerHTML = nextCost;	// updates the cursor cost for the user
-	};
-}
-
-function buyTractor(number){
-	var tractorCost = Math.floor(100 * Math.pow(1.2, tractors));
-	if(crops >= tractorCost){
-		tractors += 1;
-		crops -= tractorCost;
-		document.getElementById('tractors').innerHTML = tractors;
-		document.getElementById('crops').innerHTML = crops;
-		var nextCost = Math.floor(100 * Math.pow(1.2, tractors));
-		document.getElementById('tractorCost').innerHTML = nextCost;
+function buyBuilding(building){
+	switch(building){
+		case "farm":
+			var buildingCost = Math.floor(10 * Math.pow(1.1, farms));
+			if(coins >= buildingCost){
+				farms += 1;
+				coins -= buildingCost;
+				buildingCost = Math.floor(10 * Math.pow(1.1, farms));
+				document.getElementById("farms").innerHTML = farms;
+				document.getElementById("coins").innerHTML = coins;
+				document.getElementById("farmCost").innerHTML = buildingCost;
+			}
+			break;
+		case "tavern":
+			var buildingCost = Math.floor(100 * Math.pow(1.1, taverns));
+			if(coins >= buildingCost){
+				taverns += 1;
+				coins -= buildingCost;
+				buildingCost = Math.floor(100 * Math.pow(1.1, taverns));
+				document.getElementById("taverns").innerHTML = taverns;
+				document.getElementById("coins").innerHTML = coins;
+				document.getElementById("tavernCost").innerHTML = buildingCost;
+			}
+			break;
+		case "forge":
+			var buildingCost = Math.floor(1000 * Math.pow(1.1, forges));
+			if(coins >= buildingCost){
+				forges += 1;
+				coins -= buildingCost;
+				buildingCost = Math.floor(1000 * Math.pow(1.1, forges));
+				document.getElementById("forges").innerHTML = forges;
+				document.getElementById("coins").innerHTML = coins;
+				document.getElementById("forgeCost").innerHTML = buildingCost;
+			}
+			break;
+		default:
+			break;
 	}
 }
 
 window.setInterval(function(){
-	harvestClick(farmhands);
-	harvestClick(tractors * 2);
+	earnCoins(farms);
+	earnCoins(taverns*2);
+	earnCoins(forges*3);
 }, 1000);
