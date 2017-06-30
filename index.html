@@ -1,35 +1,48 @@
-<html>
+<!DOCTYPE HTML>
+<html lang="en">
 	<head>
 		<link rel="stylesheet" type="text/css" href="interface.css" />
 	</head>
 	<body>
-		<p>
-			<span>Coins: </span>
-			<span id="coins">0</span>
-		</p>
-		<div class="clickArea" onClick="earnCoins(1)"></div>
-		
-		<div class="wrapper">
-			<div class="box a" onClick="buyBuilding('farm')">
-				<span id="building1">Farms</span><br />
-				<span id="farms">0</span><br />
-				<span id="farmCost">10</span>
+		<!-- main game section -->
+		<div class="game">
+			<!-- left panel of the game, including clicking area -->
+			<div class="left-section">
+				<div class="clickArea" onClick="earnCoins(1)"></div>
 			</div>
-			<div class="box b">
-				<span id="building2" onClick="buyBuilding('tavern')">Tavern</span><br />
-				<span id="taverns">0</span><br />
-				<span id="tavernCost">100</span>
+			<!-- right panel of the game, including purchasing buildings, etc. -->
+			<div class="right-section">
+				<!-- Buildings -->
+				<div class="wrapper">
+					<div class="box a" onClick="buyBuilding('farm')">
+						<span id="building1">Farm</span><br />
+						<span id="farms">0</span><br />
+						<span id="farmCost">10</span>
+					</div>
+					<div class="box b" onClick="buyBuilding('tavern')">
+						<span id="building2">Tavern</span><br />
+						<span id="taverns">0</span><br />
+						<span id="tavernCost">100</span>
+					</div>
+					<div class="box c" onClick="buyBuilding('forge')">
+						<span id="building3">Forge</span><br />
+						<span id="forges">0</span><br />
+						<span id="forgeCost">1000</span><br />
+					</div>
+					<div class="box d">D</div>
+					<div class="box e">E</div>
+					<div class="box f">F</div>
+				</div>
 			</div>
-			<div class="box c">
-				<span id="building3" onClick="buyBuilding('forge')">Forge</span><br />
-				<span id="forges">0</span><br />
-				<span id="forgeCost">1000</span><br />
-			</div>
-			<div class="box d">D</div>
-			<div class="box e">E</div>
-			<div class="box f">F</div>
 		</div>
-		
+
+		<!-- bottom bar section for coins, menu, settings, etc. -->
+		<div class="bottom-bar">
+			<p>
+				<span>Coins: </span>
+				<span id="coins">0</span>
+			</p>
+		</div>
 		<script type="text/javascript" src="main.js"></script>
 	</body>
 </html>
