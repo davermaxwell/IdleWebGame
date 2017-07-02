@@ -10,16 +10,15 @@ body, html {
 }
 
 .left-section {
-	width: 60%;
-	height: 100%;
+	width: 65%;
+	height: 95%;
 	float: left;
-	background-color: rosybrown;
 	border-collapse: collapse;
 }
 
 .right-section {
-	wight: 40%;
-	height: 100%;
+	width: 35%;
+	height: 95%;
 	float: right;
 	background-color: royalblue;
 	border-collapse: collapse;
@@ -27,29 +26,30 @@ body, html {
 
 .bottom-bar {
 	width: 100%;
-	height 100px;
+	height: 5%;
+	float: left;
 	border-collapse: collapse;
 	background-color: #4da6ff;
+	display: grid;
+	grid-template-columns: 15% 15% 70%;
 }
 
 .clickArea {
 	height: 100%;
 	width: 100%;
-	background-image: url("goldCoins.jpeg");
-	border: solid 2px;
-	background-size: contain;
+	background-image: url("img/goldCoins.jpeg");
 }
 
 .wrapper {
 	display: grid;
 	grid-template-columns: 100px 100px 100px;
-	grid-gap: 10px;
+	grid-gap: 5px;
 	color: #444;
 }
 
 .box {
 	color: #fff;
 	border-radius: 5px;
-	padding: 20px;
+	padding: 10px;
 	font-size: 100%;
 }

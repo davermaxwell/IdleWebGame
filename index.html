@@ -2,46 +2,92 @@
 <html lang="en">
 	<head>
 		<link rel="stylesheet" type="text/css" href="interface.css" />
+		<title>Idle the Seas</title>
 	</head>
 	<body>
 		<!-- main game section -->
 		<div class="game">
 			<!-- left panel of the game, including clicking area -->
 			<div class="left-section">
-				<div class="clickArea" onClick="earnCoins(1)"></div>
+				<div class="clickArea" onClick="earnDoubloons(1)"></div>
 			</div>
 			<!-- right panel of the game, including purchasing buildings, etc. -->
 			<div class="right-section">
 				<!-- Buildings -->
 				<div class="wrapper">
-					<div class="box a" onClick="buyBuilding('farm')">
-						<span id="building1">Farm</span><br />
-						<span id="farms">0</span><br />
-						<span id="farmCost">10</span>
+					<div class="box a" onClick="buyBuilding('rowBoats')">
+						<span id="ship1">Row Boat</span><br />
+						<span id="rowBoats">0</span><br />
+						<span id="rowBoatCost">10</span>
 					</div>
-					<div class="box b" onClick="buyBuilding('tavern')">
-						<span id="building2">Tavern</span><br />
-						<span id="taverns">0</span><br />
-						<span id="tavernCost">100</span>
+					<div class="box b" onClick="buyBuilding('sloops')">
+						<span id="ship2">Sloop</span><br />
+						<span id="sloops">0</span><br />
+						<span id="sloopCost">100</span>
 					</div>
-					<div class="box c" onClick="buyBuilding('forge')">
-						<span id="building3">Forge</span><br />
-						<span id="forges">0</span><br />
-						<span id="forgeCost">1000</span><br />
+					<div class="box c" onClick="buyBuilding('longships')">
+						<span id="ship3">Longship</span><br />
+						<span id="longships">0</span><br />
+						<span id="longshipCost">1000</span>
 					</div>
-					<div class="box d">D</div>
-					<div class="box e">E</div>
-					<div class="box f">F</div>
+					<div class="box d">
+						<span id="ship4">Caravelle</span></br >
+						<span id="caravelles">0</span><br />
+						<span id="caravelleCost">10000</span>
+					</div>
+					<div class="box e">
+						<span id="ship4">Schooner</span></br >
+						<span id="schooners">0</span><br />
+						<span id="schoonerCost">100000</span>
+					</div>
+					<div class="box f">
+						<span id="ship4">Galley</span></br >
+						<span id="galleys">0</span><br />
+						<span id="galleyCost">1000000</span>
+					</div>
+					<div class="box g">
+						<span id="ship4">Brigantine</span></br >
+						<span id="brigantines">0</span><br />
+						<span id="brigantineCost">10000000</span>
+					</div>
+					<div class="box h">
+						<span id="ship4">Barque</span></br >
+						<span id="barques">0</span><br />
+						<span id="barqueCost">100000000</span>
+					</div>
+					<div class="box i">
+						<span id="ship4">Galleon</span></br >
+						<span id="galleons">0</span><br />
+						<span id="galleonCost">1000000000</span>
+					</div>
+					<div class="box j">
+						<span id="ship4">Trireme</span></br >
+						<span id="triremes">0</span><br />
+						<span id="triremeCost">10000000000</span>
+					</div>
+					<div class="box k">
+						<span id="ship4">Man-of-war</span></br >
+						<span id="man_of_wars">0</span><br />
+						<span id="man_of_warCost">100000000000</span>
+					</div>
+					<div class="box l">
+						<span id="ship4">Dreadnought</span></br >
+						<span id="dreadnoughts">0</span><br />
+						<span id="dreadnoughtCost">1000000000000</span>
+					</div>
 				</div>
 			</div>
-		</div>
-
-		<!-- bottom bar section for coins, menu, settings, etc. -->
-		<div class="bottom-bar">
-			<p>
-				<span>Coins: </span>
-				<span id="coins">0</span>
-			</p>
+		<!-- bottom bar section for doubloons, menu, settings, etc. -->
+			<div class="bottom-bar">
+				<div class="box bottomA">
+					<span>Doubloons: </span>
+					<span id="doubloons">0</span>
+				</div>
+				<div class="box bottomB">
+					<span>Doubloons per second: </span>
+					<span id="doubloonsPs">0</span>
+				</div>
+			</div>
 		</div>
 		<script type="text/javascript" src="main.js"></script>
 	</body>
