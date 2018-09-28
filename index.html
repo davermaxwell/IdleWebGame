@@ -1,35 +1,242 @@
+<!DOCTYPE HTML>
 <html>
-	<head>
-		<link rel="stylesheet" type="text/css" href="interface.css" />
-	</head>
-	<body>
-		<p>
-			<span>Coins: </span>
-			<span id="coins">0</span>
-		</p>
-		<div class="clickArea" onClick="earnCoins(1)"></div>
-		
-		<div class="wrapper">
-			<div class="box a" onClick="buyBuilding('farm')">
-				<span id="building1">Farms</span><br />
-				<span id="farms">0</span><br />
-				<span id="farmCost">10</span>
-			</div>
-			<div class="box b">
-				<span id="building2" onClick="buyBuilding('tavern')">Tavern</span><br />
-				<span id="taverns">0</span><br />
-				<span id="tavernCost">100</span>
-			</div>
-			<div class="box c">
-				<span id="building3" onClick="buyBuilding('forge')">Forge</span><br />
-				<span id="forges">0</span><br />
-				<span id="forgeCost">1000</span><br />
-			</div>
-			<div class="box d">D</div>
-			<div class="box e">E</div>
-			<div class="box f">F</div>
-		</div>
-		
-		<script type="text/javascript" src="main.js"></script>
-	</body>
+    <head>
+        <!--Import materialize.css-->
+        <link type = "text/css" rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css" media = "screen,projection"/>
+        
+        <!--Let browser know website is optimized for mobile-->
+        <meta name = "viewport" content = "width=device-width, initial-scale=1.0"/>
+        
+        <title>Scurvy Simulator 9000</title>
+    </head>
+    <body>
+        <script type = "text/javascript" src = "js/index.js"></script>
+        <!--Import jQuery before materialize.js-->
+        <script type = "text/javascript" src = "https://code.jquery.com/jquery-3.2.1.min.js"></script>
+      	<script type = "text/javascript" src = "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+        
+        <h1 align = "center">COME GET UR SCURVY!!!</h1>
+        
+        <div class = "row">
+            <div class = "col s3">
+                <h6 style = "text-align: center;" id = "currentWood">Wood: 0</h6>
+                <h6 style = "text-align: center;" id = "currentGold">Doubloons: 0</h6>
+                <h6 style = "text-align: center; display: none;" id = "currentSouls">Souls: 0</h6>
+                
+                <input onClick = "activeClick()" style = "width: 75%; display: block; margin-left: auto; margin-right: auto; outline: none;" 
+                    type = "image" src = "https://cdn7.bigcommerce.com/s-do0ookap9x/images/stencil/1280x1280/products/8340/10121/apit4d74i__00511.1513262854.jpg?c=2&imbypass=on" id = "clickArea"></input>
+            </div>
+            <div class = "col s9">
+                <ul class = "tabs">
+                    <li class = "tab col s1"><a href = "#boats">Boats</a></li>
+                    <li class = "tab col s1"><a href = "#crew">Crew</a></li>
+                    <li class = "tab col s1"><a href = "#upgrades">Upgrades</a></li>
+                    <li class = "tab col s1"><a href = "#lords">Pirate Lords</a></li>
+                    <li class = "tab col s1"><a href = "#bosses">Bosses & Gods</a></li>
+                    <li class = "tab col s1"><a href = "#djlocker">Davey Jones' Locker</a></li>
+                    <li class = "tab col s1"><a href = "#dredging">Dredging</a></li>
+                    <li class = "tab col s1"><a href = "#achievements">Fish Stories</a></li>
+                    <li class = "tab col s1"><a href = "#settings">Settings</a></li>
+                </ul>
+                
+                <div id = "boats">
+                
+                    <table id = "boatTable">
+                        <thead>
+                            <tr>
+                                <th>Ship Name</th>
+                                <th>Description</th>
+                                <th>Purchase</th>
+                                <th>Wood Cost</th>
+                                <th>Gold Cost</th>
+                                <th>In Fleet</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Row Boat</td>
+                                <td>Sneaky little boat that gathers 1 gold per second from the sea</td>
+                                <td><a onClick = "buyBoat(0)" id = "rowBoat" data-position = "bottom" data-tooltip = "Provides 1 gold per second" class = "tooltipped waves-effect waves-light btn">Buy</a></td>
+                                <td>10</td>
+                                <td>10</td>
+                                <td id = "rowBoats">0</td>
+                            </tr>
+                            <tr>
+                                <td>Sloop</td>
+                                <td>Gathers 5 gold per second</td>
+                                <td><a onClick = "buyBoat(1)" id = "sloop" data-position = "bottom" data-tooltip = "Provides 5 gold per second" class = "tooltipped waves-effect waves-light btn">Buy</a></td>
+                                <td>100</td>
+                                <td>150</td>
+                                <td id = "sloops">0</td>
+                            </tr>
+                            <tr>
+                                <td>Longship</td>
+                                <td>Gathers 25 gold per second</td>
+                                <td><a onClick = "buyBoat(2)" id = "longship" data-position = "bottom" data-tooltip = "" class = "tooltipped waves-effect waves-light btn">Buy</a></td>
+                                <td>1,000</td>
+                                <td>1,800</td>
+                                <td id = "longships">0</td>
+                            </tr>
+                            <tr>
+                                <td>Caravelle</td>
+                                <td>Gathers 150 gold per second</td>
+                                <td><a onClick = "buyBoat(3)" id = "caravelle" data-position = "bottom" data-tooltip = "" class = "tooltipped waves-effect waves-light btn">Buy</a></td>
+                                <td>10,000</td>
+                                <td>21,600</td>
+                                <td id = "caravelles">0</td>
+                            </tr>
+                            <tr>
+                                <td>Schooner</td>
+                                <td>Gathers 750 gold per second</td>
+                                <td><a onClick = "buyBoat(4)" id = "schooner" data-position = "bottom" data-tooltip = "" class = "tooltipped waves-effect waves-light btn">Buy</a></td>
+                                <td>100,000</td>
+                                <td>259,200</td>
+                                <td id = "schooners">0</td>
+                            </tr>
+                            <tr>
+                                <td>Galley</td>
+                                <td>Gathers 3,750 gold per second</td>
+                                <td><a onClick = "buyBoat(5)" id = "galley" data-position = "bottom" data-tooltip = "" class = "tooltipped waves-effect waves-light btn">Buy</a></td>
+                                <td>1,000,000</td>
+                                <td>3,110,400</td>
+                                <td id = "galleys">0</td>
+                            </tr>
+                            <tr>
+                                <td>Brigantine</td>
+                                <td>Gathers 18,750 gold per second</td>
+                                <td><a onClick = "buyBoat(6)" id = "brigantine" data-position = "bottom" data-tooltip = "" class = "tooltipped waves-effect waves-light btn">Buy</a></td>
+                                <td>10,000,000</td>
+                                <td>37,324,800</td>
+                                <td id = "brigantines">0</td>
+                            </tr>
+                            <tr>
+                                <td>Barque</td>
+                                <td>Gathers 93,750 gold per second</td>
+                                <td><a onClick = "buyBoat(7)" id = "barque" data-position = "bottom" data-tooltip = "" class = "tooltipped waves-effect waves-light btn">Buy</a></td>
+                                <td>100,000,000</td>
+                                <td>447,897,600</td>
+                                <td id = "barques">0</td>
+                            </tr>
+                            <tr>
+                                <td>Galleon</td>
+                                <td>Gathers 468,750 gold per second</td>
+                                <td><a onClick = "buyBoat(8)" id = "galleon" data-position = "bottom" data-tooltip = "" class = "tooltipped waves-effect waves-light btn">Buy</a></td>
+                                <td>1,000,000,000</td>
+                                <td>5,374,771,200</td>
+                                <td id = "galleons">0</td>
+                            </tr>
+                            <tr>
+                                <td>Trireme</td>
+                                <td>Gathers 2,343,750 gold per second</td>
+                                <td><a onClick = "buyBoat(9)" id = "trireme" data-position = "bottom" data-tooltip = "" class = "tooltipped waves-effect waves-light btn">Buy</a></td>
+                                <td>10,000,000,000</td>
+                                <td>64,497,254,400</td>
+                                <td id = "triremes">0</td>
+                            </tr>
+                            <tr>
+                                <td>Man-of-War</td>
+                                <td>Gathers 11,718,750 gold per second</td>
+                                <td><a onClick = "buyBoat(10)" id = "manofwar" data-position = "bottom" data-tooltip = "" class = "tooltipped waves-effect waves-light btn">Buy</a></td>
+                                <td>100,000,000,000</td>
+                                <td>773,967,052,800</td>
+                                <td id = "manofwars">0</td>
+                            </tr>
+                            <tr>
+                                <td>Dreadnought</td>
+                                <td>Gathers 58,593,750 gold per second</td>
+                                <td><a onClick = "buyBoat(11)" id = "" data-position = "bottom" data-tooltip = "" class = "tooltipped waves-effect waves-light btn">Buy</a></td>
+                                <td>1,000,000,000,000</td>
+                                <td>9,287,604,633,600</td>
+                                <td id = "dreadnoughts">0</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                
+                </div>
+                
+                <div id = "crew">
+                    <a onClick = "crewAmountFunction()" id = "crewAmountId" data-position = "bottom" data-tooltip = "Change amount to buy" class = "tooltipped waves-effect waves-light btn">1</a>
+                    <table id = "crewTable">
+                        <thead>
+                            <tr>
+                                <th>Type</th>
+                                <th>Description</th>
+                                <th>Hire</th>
+                                <th>Walk the Plank</th>
+                                <th>Gold Cost</th>
+                                <th>In Crew</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Drift Wood Scavenger</td>
+                                <td>Hangs over the edge of the boat and grabs 1 piece of drift wood per second</td>
+                                <td><a onClick = "hireCrew(0, crewAmount)" id = "scavengerBuy" data-position = "bottom" data-tooltip = "Gathers 1 wood per second" class = "tooltipped waves-effect waves-light btn">Buy</a></td>
+                                <td><a onClick = "sellCrew(0, crewAmount)" id = "scavengerSell" data-position = "bottom" data-tooltip = "Send a scavenger back to the seas!" class = "tooltipped waves-effect waves-light btn">Sell</a></td>
+                                <td id = "scavengerCost">10</td>
+                                <td id = "scavengers">0</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div id = "upgrades">
+                
+                    <table id = "upgradeTable">
+                        <thead>
+                            <tr>
+                                <th>Upgrade</th>
+                                <th>Description</th>
+                                <th>Cost</th>
+                                <th>Owned</th>
+                            <tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Bigger hull</td>
+                                <td>More hull, more space for gold!</td>
+                                <td>100</td>
+                                <td>No</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                
+                </div>
+                
+                <div id = "lords">
+                    <h3>Coming soon!</h3>
+                </div>
+                
+                <div id = "bosses">
+                
+                    <h3>Bosses and Gods coming soon!</h3>
+                
+                </div>
+                
+                <div id = "djlocker">
+                
+                    <h3>Davey Jones' Locker coming soon!</h3>
+                
+                </div>
+                
+                <div id = "dredging">
+                
+                    <h3>Dredging coming soon!<h3>
+                
+                </div>
+                
+                <div id = "achievements">
+                
+                    <h3>Achievements coming soon!</h3>
+                
+                </div>
+                
+                <div id = "settings">
+                
+                    <h3>Settings coming soon!</h3>
+                    
+                </div>
+            </div>
+        </div>
+    </body>
 </html>
